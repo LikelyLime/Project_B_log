@@ -23,25 +23,11 @@
 		}
 		
 		/* 값 보내기 */
-		var url = "login.do";
-		var param = "id=" +encodeURLComponent(id) + "&pwd=" +encodeURLComponent(pwd);
-		sendRequest(url, param, result, "post");
+		f.action = "check.do";
+		f.method = "post";
+		f.submit();
 		 }
-	function result() {
-		if (xhr.readyState == 4 && xhr.status == 200) {
-			var data = xhr.responseText;
-			var json = eval(data);
-			
-			if (json[0].param == 'no_id') {
-				alert("아이디가 존재하지 않습니다.");
-			}else if(json[0].param == 'no_pwd'){
-				alert("비밀번호가 다릅니다.");
-			}else{
-				location href="clear.do";
-			}
-			
-		}
-	}
+	
 </script>
 </head>
 <body>

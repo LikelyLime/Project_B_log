@@ -12,7 +12,8 @@ public class LoginDAO {
 	
 	public LoginVO selectOne( String id ) {
 		LoginVO vo = null;
-		vo = sqlsession.selectOne("b.id_search", id);
+		vo = sqlsession.selectOne("b.id_check", id);
+		
 		return vo;
 	}
 	
