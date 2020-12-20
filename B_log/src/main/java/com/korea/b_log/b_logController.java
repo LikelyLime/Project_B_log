@@ -4,7 +4,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import dao.LoginDAO;
 import vo.LoginVO;
@@ -24,19 +27,41 @@ public class b_logController {
 		return "login_form.jsp";
 	}//로그인 폼 이동
 	
+
 	@RequestMapping("/check.do")
-	public String check(String id, String pwd) {
-				
-		LoginVO user = login_dao.selectOne(id);
-		String db_id = user.getId();
-		String db_pwd = user.getPwd();
+	@ResponseBody
+	public String check( Model model, String id, String pwd ) {
 		
-		if (db_id == null) {
-			
+		
+		System.out.println("---확인---" + id);
+		System.out.println("---확인---" + pwd);
+		
+		
+		LoginVO user = login_dao.selectOne(id);
+		System.out.println(user.getId());
+		String param = "";
+		String resultStr = "";
+		
+		if ( user == null) {
+			param = "no_id";
+			resultStr = String.format("[{'resultStr':'%s'}]", param);
+			return resultStr;
 		}
 		
+		if (!user.getPwd().equals(pwd)) {
+			param = "no_pwd";
+			resultStr = String.format("[{'resultStr':'%s'}]", param);
+			return resultStr;
+		}
 		
-		return "main_contest.jsp";
+		model.addAttribute("resultStr", resultStr);
+		
+		return resultStr;
+	}
+	
+	@RequestMapping("/clear.do")
+	public String clear() {
+		return "main_content.jsp";
 	}
 
 }
