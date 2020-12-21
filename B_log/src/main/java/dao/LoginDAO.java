@@ -11,9 +11,9 @@ public class LoginDAO {
 	}
 	
 	public LoginVO selectOne( String id ) {
-		System.out.println("확인2" + id);
 		LoginVO vo = null;
-		vo = sqlsession.selectOne("b.id_check", vo);
+		vo = sqlsession.selectOne("b.id_check", id);
+		//System.out.println("확인2" + vo.getId());//출력안됨
 		return vo;
 	}
 	

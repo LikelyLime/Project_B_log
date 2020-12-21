@@ -14,10 +14,9 @@ import vo.LoginVO;
 
 @Controller
 public class b_logController {
+	
+	@Autowired
 	LoginDAO login_dao;
-	public void setLogin_dao(LoginDAO login_dao) {
-		this.login_dao = login_dao;
-	}
 	
 	@Autowired
 	HttpServletRequest request;
@@ -34,11 +33,11 @@ public class b_logController {
 		
 		
 		System.out.println("---확인---" + id);
-		System.out.println("---확인---" + pwd);
+		
 		
 		
 		LoginVO user = login_dao.selectOne(id);
-		System.out.println(user.getId());
+		System.out.println("--user--" + user);
 		String param = "";
 		String resultStr = "";
 		
@@ -47,14 +46,14 @@ public class b_logController {
 			resultStr = String.format("[{'resultStr':'%s'}]", param);
 			return resultStr;
 		}
-		
 		if (!user.getPwd().equals(pwd)) {
+		
 			param = "no_pwd";
 			resultStr = String.format("[{'resultStr':'%s'}]", param);
-			return resultStr;
+			
 		}
 		
-		model.addAttribute("resultStr", resultStr);
+		System.out.println("if문 통과" + param);
 		
 		return resultStr;
 	}
