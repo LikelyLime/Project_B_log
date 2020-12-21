@@ -30,15 +30,13 @@
 	
 	function result() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
-			alert(data);
-			var data = xhr.responseText;
-			var json = eval(data);
-			alert(json);
 			
-			if (json[0].param == 'no_id') {
+			var data = xhr.responseText;
+			
+			if (data == 'no_id') {
 				alert("아이디가 존재하지 않습니다.");
 				
-			}else if(json[0].param == 'no_pwd'){
+			}else if(data == 'no_pwd'){
 				alert("비밀번호가 다릅니다.");
 				
 			}else{

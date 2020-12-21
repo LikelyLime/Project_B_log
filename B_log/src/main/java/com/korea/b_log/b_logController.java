@@ -38,25 +38,24 @@ public class b_logController {
 		
 		LoginVO user = login_dao.selectOne(id);
 		System.out.println("--user--" + user);
-		String param = "";
 		String resultStr = "";
 		
 		if ( user == null) {
-			param = "no_id";
-			resultStr = String.format("[{'resultStr':'%s'}]", param);
+			resultStr = "no_id";
 			return resultStr;
 		}
 		if (!user.getPwd().equals(pwd)) {
 		
-			param = "no_pwd";
-			resultStr = String.format("[{'resultStr':'%s'}]", param);
-			
+			resultStr = "no_pwd";
+			return resultStr;
 		}
 		
-		System.out.println("if문 통과" + param);
+		System.out.println("if문 통과");
+		resultStr = "yes";
 		
 		return resultStr;
 	}
+	
 	
 	@RequestMapping("/clear.do")
 	public String clear() {
