@@ -59,8 +59,8 @@
 					<div class="type_content"> 
 						<pre>${vo.content }</pre> <br>
 						
-						<c:if test="${vo.file != null}">
-							<img src="resources/upload/${vo.file }" width="200">
+						<c:if test="${vo.photo != null}">
+							<img src="resources/upload/${vo.photo }" width="200">
 						</c:if>
 					</div>
 					<div class="type_name">작성자 : ${vo.id }(${vo.ip })</div>

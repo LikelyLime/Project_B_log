@@ -20,7 +20,7 @@
 		}
 		
 		f.action="insert.do";
-		f.method="get";
+		f.method="post";
 		f.submit();
 		
 	}
@@ -32,7 +32,7 @@
 			
 			<tr>
 				<th>제목</th>
-				<td><input name="subject" style="width: 250px"></td>
+				<td><input name="subject" style="width:250px"></td>
 			</tr>
 			<tr>
 				<th>내용</th>
