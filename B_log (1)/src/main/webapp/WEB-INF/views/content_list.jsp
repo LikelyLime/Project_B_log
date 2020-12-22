@@ -48,7 +48,7 @@
 			<div align="center">
 				<input id="search_id">
 				<input type="button" value="찾기" onclick="search();">
-				<input type="button" value="새글쓰기" onclick="">
+				<input type="button" value="새글쓰기" onclick="location.href='insert_form.do'">
 				<input type="button" value="로그아웃" onclick="logout();">
 			</div>
 			<c:forEach var="vo" items="${list }">
@@ -59,8 +59,8 @@
 					<div class="type_content"> 
 						<pre>${vo.content }</pre> <br>
 						
-						<c:if test="${vo.photo != null}">
-							<img src="resources/upload/${vo.photo }" width="200">
+						<c:if test="${vo.file != null}">
+							<img src="resources/upload/${vo.file }" width="200">
 						</c:if>
 					</div>
 					<div class="type_name">작성자 : ${vo.id }(${vo.ip })</div>

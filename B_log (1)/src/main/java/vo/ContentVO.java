@@ -1,5 +1,7 @@
 package vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ContentVO {
 	private int idx;
 	private String id;
@@ -9,7 +11,21 @@ public class ContentVO {
 	private String ip;
 	private String regdate;
 	private int readhit;
+	MultipartFile file;
 	
+	
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 	public int getIdx() {
 		return idx;
 	}
@@ -34,12 +50,7 @@ public class ContentVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getPhoto() {
-		return photo;
-	}
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
+	
 	public String getIp() {
 		return ip;
 	}

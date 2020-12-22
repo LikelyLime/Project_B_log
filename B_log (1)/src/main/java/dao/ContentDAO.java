@@ -29,6 +29,11 @@ public class ContentDAO {
 		ContentVO vo = sqlSession.selectOne("c.show", idx);
 		return vo;
 	}
+	public int insert(ContentVO vo) {
+		int res = sqlSession.insert("c.insert", vo);
+		System.out.println(res);
+		return res;
+	}
 	
 	
 }
