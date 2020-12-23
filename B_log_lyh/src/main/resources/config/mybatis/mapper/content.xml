@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="c">
+	
+	<select id="list" resultType="content" parameterType="java.lang.String">
+		select * from b_log_content where id = #{id} order by idx desc
+	</select>
+	
+	<select id="login_check" resultType="login" parameterType="java.lang.String">
+		select * from b_log_login where id = #{id}
+	</select>
+	
+	<select id="show" resultType="content" parameterType="int">
+		select * from b_log_content where idx = #{idx}
+	</select>
+	
+	<insert id="user_insert" parameterType="login" >
+		insert into B_LOG_LOGIN values(
+			#{id},
+			#{pwd}
+		)	
+	</insert>
+	
+	<insert id="content_insert" parameterType="content">
+		insert into b_log_content values(
+			seq_con_idx.nextval,
+			#{id},<!-- id를 받아와야 합니다. 어떻게 받아오는지 모르겠어요 --><!-- session에 담아둔 check_login이용 -->
+			#{subject},
+			#{content},
+			#{photo},
+			#{ip},
+			sysdate,
+			0
+		)
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

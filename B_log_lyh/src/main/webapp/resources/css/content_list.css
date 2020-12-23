@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+body {
+   color: #333333;
+   background: #596778;
+}
+/* #total_box{
+	border-radius: 20px 0px;
+	background: #FFFFFF;
+} */
+#main_box {
+	width: 500px;
+	margin: auto;
+}
+
+.title {
+	text-align: left;
+	font-size: 15pt;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #FFFFFF;
+	text-shadow: 2px 2px 2px black;
+}
+#main_box > h2 {
+	text-align: center;
+	font-size: 20pt;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #FFFFFF;
+	text-shadow: 2px 2px 2px black;
+}
+  .title h1 {
+      display: inline;
+    }
+
+.b_log_box {
+	margin-top: 10px;
+	box-shadow: 2px 2px 2px black;
+	border: 1px solid black;
+	border-radius: 10px;
+	background: #FFFFFF;
+}
+
+.type_subject {
+	
+}
+
+.type_content {
+	min-height: 50px;
+	height: auto;
+	
+}
+.type_content_write{
+	min-height: 50px;
+	height: auto;
+}
+
+.type_content_photo{
+	min-height: 100px;
+	height: auto;
+}
+
+.type_name {
+	
+	font-weight: bolder;
+	padding-left:30px;
+	border-radius: 20px;
+}
+
+.type_regdate {
+	padding-left:30px;
+	font-size: 14px;
+}
+.search_icon{
+	 width: 20px;
+     height: 17px;
+     cursor: pointer;
+}
+.new_icon{
+	 width: 30px;
+     height: 30px;
+     cursor: pointer;
+}
+.logout_icon{
+	width: 30px;
+     height: 30px;
+     cursor: pointer;
+}
+.myblog_icon{
+	width: 30px;
+     height: 30px;
+     cursor: pointer;
+}
+.blog_icon{
+	 position:relative;
+	 right: 0px;
+	 width: 100px;
+     height: 30px;
+     cursor: pointer;
+}

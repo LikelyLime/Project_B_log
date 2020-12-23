@@ -44,7 +44,7 @@
 	<body>
 		
 		<div id="main_box">
-			<h1 align="center">:::${list[0].id }님의 게시글:::</h1>
+			<h1 align="center">:::${list[0].id }의 스토리:::</h1>
 			<div align="center">
 				<input id="search_id">
 				<input type="button" value="찾기" onclick="search();">
@@ -53,18 +53,18 @@
 			</div>
 			<c:forEach var="vo" items="${list }">
 				<div class="b_log_box" style="cursor: pointer;" onclick="show_content(${vo.idx})">
-					<div class="type_subject">
-						제목 : ${vo.subject }
-					</div>
+					<div class="type_name">${vo.id }(${vo.regdate })</div>
+					<div class="type_regdate">작성일 : ${vo.regdate }</div>
 					<div class="type_content"> 
 						<pre>${vo.content }</pre> <br>
 						
 						<c:if test="${vo.photo != null}">
-							<img src="resources/upload/${vo.photo }" width="200">
+							<img src="resources/upload/${vo.photo }" width="100">
 						</c:if>
+					<div class="type_subject">
+						제목 : ${vo.subject }
 					</div>
-					<div class="type_name">작성자 : ${vo.id }(${vo.ip })</div>
-					<div class="type_regdate">작성일 : ${vo.regdate }</div>
+					</div>
 					<div align="center">
 						<form>
 							<input type="hidden" name="idx" value="${vo.idx }">
