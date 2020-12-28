@@ -36,6 +36,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 	</insert>
 	
+	<update id="modify" parameterType="content">
+		update b_log_content set subject=#{subject}, content=#{content},
+			ip=#{ip}, photo=#{photo}, regdate=sysdate where idx=#{idx}
+	</update>
+	
 </mapper>
 
 

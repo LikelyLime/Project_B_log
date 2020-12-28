@@ -8,6 +8,12 @@
 </head>
 <body>
    <title>상세보기</title>
+   <script type="text/javascript">
+   		function modify_form(f) {
+			f.action = 'modify_form.do';
+			f.submit();
+		}
+   </script>
 </head>
 <body>
    <form name="f" method="post">
@@ -45,8 +51,9 @@
          <tr>
             <td colspan="2" align="center">
                <div style="margin-top: 20px">
+               <input type="hidden" name="idx" value="${vo.idx}">
                   <button type="button" class="btn btn-sm btn-primary"
-                     id="btnUpdate">수정</button>
+                     id="btnUpdate" onclick="modify_form(this.form)">수정</button>
                   <button type="button" class="btn btn-sm btn-primary"
                      id="btnDelete">삭제</button>
                   <button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button>

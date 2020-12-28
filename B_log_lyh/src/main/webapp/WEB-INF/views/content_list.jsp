@@ -53,7 +53,7 @@
 			
 			<div class="title">
 				<h1>
-					<img class="blog_icon" src="${pageContext.request.contextPath }/resources/img/blog.png" onclick="location.href='content.do(${vo.idx})'">
+					<img class="blog_icon" src="${pageContext.request.contextPath }/resources/img/blog.png">
 				</h1>
 				<h1>
 					${check_login }님의 뉴스피드

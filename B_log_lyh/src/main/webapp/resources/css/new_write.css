@@ -14,7 +14,7 @@ body {
 }
 .back_icon{
 	position:absolute;
-	left: 222px;
+	left: 221px;
 	top: 13px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
@@ -24,7 +24,7 @@ body {
 }
 .insert_icon{
 	position:absolute;
-	left: 684px;
+	left: 683px;
 	top: 13px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
@@ -35,7 +35,7 @@ body {
 }
 .file1{
 	position:absolute;
-	left: 630px;
+	left: 627px;
 	top: 13px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
@@ -51,7 +51,7 @@ body {
 ::-webkit-file-upload-button { cursor:pointer; }
 .file2{
 	position:absolute;
-	left: 630px;
+	left: 627px;
 	top: 13px;
 	border-radius: 10px;
 	width: 50px;

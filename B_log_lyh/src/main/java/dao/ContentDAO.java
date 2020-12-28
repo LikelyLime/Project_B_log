@@ -31,5 +31,9 @@ public class ContentDAO {
 		return res;
 	}
 	
+	public int update(ContentVO vo) {
+		int res = sqlSession.update("c.modify", vo);
+		return res;
+	}
 	
 }
