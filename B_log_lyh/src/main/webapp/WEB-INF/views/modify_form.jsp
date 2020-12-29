@@ -31,7 +31,7 @@
 	function resultFn() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 			var data = xhr.responseText;
-			alert(data)
+			
 			
 			if (data == 'no') {
 				alert("수정 실패");

@@ -176,44 +176,27 @@ public class b_logController {
 	@RequestMapping("/modify.do")
 	@ResponseBody
 	public String modify( ContentVO vo, int idx ){
-		String check_login = (String)session.getAttribute("check_login");
-		if(check_login==null) {
-			return "please_login.jsp";
+		ContentVO before = con_dao.selectOne(idx);
+		
+		if (!vo.getPhoto().equals(before.getPhoto())) {
+			
+			String webPath = "/resources/upload/"+before.getId()+"/"+before.getPhoto();
+			String savePath = applicaion.getRealPath(webPath);
+			System.out.println(savePath);
+			
+			File file1 = new File(savePath);
+			if (file1.exists() == true) {
+				file1.delete();
+			}
+			MultipartFile file = vo.getFile();
+			
+			String photo = "no_file";
 		}
+			
+		
 		String ip = request.getRemoteAddr();
 		vo.setIp(ip);
-		vo.setId(check_login);
-		String webPath = "/resources/upload/"+check_login+"/";
-		String savePath = applicaion.getRealPath(webPath);//절대경로
-		System.out.println(savePath);
 		
-		MultipartFile file = vo.getFile();
-		String photo = "no_file";
-		
-		if (!file.isEmpty()) {
-			photo = file.getOriginalFilename();//filename에 본 사진이름을 넣음
-			
-			File saveFile = new File(savePath, photo);
-			
-			if (!saveFile.exists()) {
-				saveFile.mkdirs();//만약 폴더가 없으면 생성
-			}else {
-				long time = System.currentTimeMillis();
-				photo = String.format("%d_%s", time, photo);
-				saveFile = new File(savePath, photo);
-			}
-			//파일을 원래 저장형식으로 변환
-			try {
-				file.transferTo(saveFile);
-			} catch (IllegalStateException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		vo.setPhoto(photo);
 		int res = con_dao.update(vo);
 		
 		String result = "no";
