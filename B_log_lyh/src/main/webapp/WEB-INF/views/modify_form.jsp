@@ -10,8 +10,8 @@
 <script src="${pageContext.request.contextPath}/resources/js/httpRequest.js"></script>
 <script type="text/javascript">
 	function send(f) {
-		
 		var f = document.f;
+		
 		if (f.subject.value == '') {
 			alert("제목을 입력하세요");
 			return;
@@ -21,26 +21,9 @@
 			return;
 		}
 		
-		var url = "modify.do";
-		var param = "idx=" + f.idx.value + "&subject=" + f.subject.value
-					+ "&content=" + encodeURIComponent(f.content.value)
-					+ "&photo=" + f.file.value;
-		sendRequest( url, param, resultFn, "post" );
-		
-	}
-	function resultFn() {
-		if (xhr.readyState == 4 && xhr.status == 200) {
-			var data = xhr.responseText;
-			
-			
-			if (data == 'no') {
-				alert("수정 실패");
-				return;
-			}
-			alert("수정을 완료하였습니다.")
-			location.href = "content.do";
-			
-		}
+		f.action="modify.do";
+		f.method="post";
+		f.submit();
 	}
 	
 	function back() {
@@ -52,21 +35,35 @@
 </head>
 <body>
 	<form name="f" enctype="multipart/form-data">
-		<table class="table" align="center">
+		<table class="table_icon">
 			<tr style="cursor:pointer;">
 				<td>
-					<input type="hidden" name="idx" value="${vo.idx}">
-					<img class="back_icon" src="${pageContext.request.contextPath }/resources/img/back2.GIF" title="뒤로가기" onclick="back(this.form);">
-					<img class="file2" src="${pageContext.request.contextPath }/resources/img/file2.GIF" title="업로드">
-					<input class="file1" type="file" name="file">
-					<img class="insert_icon" src="${pageContext.request.contextPath }/resources/img/insert2.GIF" title="수정하기" onclick="send();">
+					<div class="icon">
+						<input type="hidden" name="idx" value="${ vo.idx }">
+						<input type="hidden" name="photo" value="${ vo.photo }">
+						<div><img class="back_icon" src="${pageContext.request.contextPath }/resources/img/back2.GIF" title="뒤로가기" onclick="location.href='content.do'"></div>
+						<div class="details1"><p>뒤로가기</p></div>
+					</div>
+				</td>
+				<td>
+					<div class="icon">
+						<img class="file2" src="${pageContext.request.contextPath }/resources/img/file2.GIF" title="업로드">
+						<input class="file1" type="file" name="file">
+						<div class="details2"><p>업로드</p></div>
+					</div>
+				</td>
+				<td>
+					<div class="icon">
+						<img class="insert_icon" src="${pageContext.request.contextPath }/resources/img/insert2.GIF" title="등록하기" onclick="send();">
+						<div class="details3"><p>등록하기</p></div>
+					</div>	
 				</td>
 			</tr>
+		</table>
+		<table class="table">	
 			
 			<tr>
-			
-			
-				<td><input name="subject" style="border: none" style="width:250px" value="${ vo.subject }" style="height:20px"></td>
+				<td><input name="subject" style="border: none" value="${ vo.subject }" style="width:250px" style="height:20px"></td>
 			</tr>
 			<tr>
 				<td colspan="2">

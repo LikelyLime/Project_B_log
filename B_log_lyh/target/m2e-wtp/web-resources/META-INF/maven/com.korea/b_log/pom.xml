@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.korea</groupId>
 	<artifactId>b_log</artifactId>
-	<name>B_log_lyh</name>
+	<name>B_log_sihun</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>

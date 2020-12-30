@@ -174,11 +174,10 @@ public class b_logController {
 	}
 	
 	@RequestMapping("/modify.do")
-	@ResponseBody
 	public String modify( ContentVO vo, int idx ){
 		ContentVO before = con_dao.selectOne(idx);
-		
-		if (!vo.getPhoto().equals(before.getPhoto())) {
+		System.out.println("확인");
+		if (!before.getPhoto().equals("no_file")) {
 			
 			String webPath = "/resources/upload/"+before.getId()+"/"+before.getPhoto();
 			String savePath = applicaion.getRealPath(webPath);
@@ -189,10 +188,36 @@ public class b_logController {
 				file1.delete();
 			}
 			MultipartFile file = vo.getFile();
-			
 			String photo = "no_file";
-		}
 			
+			if (!file.isEmpty()) {
+				photo = file.getOriginalFilename();//filename에 본 사진이름을 넣음
+				
+				File saveFile = new File(savePath, photo);
+				
+				if (!saveFile.exists()) {
+					saveFile.mkdirs();//만약 폴더가 없으면 생성
+				}else {
+					long time = System.currentTimeMillis();
+					photo = String.format("%d_%s", time, photo);
+					saveFile = new File(savePath, photo);
+				}
+				//파일을 원래 저장형식으로 변환
+				try {
+					file.transferTo(saveFile);
+				} catch (IllegalStateException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			vo.setPhoto(photo);
+			
+		}	
+			
+			System.out.println("확인1");
 		
 		String ip = request.getRemoteAddr();
 		vo.setIp(ip);
@@ -204,7 +229,7 @@ public class b_logController {
 			result = "yes";
 		}
 		
-		return result;
+		return "redirect:content.do";
 		
 	}
 }
