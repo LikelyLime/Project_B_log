@@ -12,6 +12,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from b_log_login where id = #{id}
 	</select>
 	
+	<select id="login_search" resultType="login" parameterType="String">
+		select * from b_log_login where id like '%' || #{id} || '%'
+	</select>
+	
 	<select id="show" resultType="content" parameterType="int">
 		select * from b_log_content where idx = #{idx}
 	</select>

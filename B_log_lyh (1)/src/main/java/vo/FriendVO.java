@@ -3,9 +3,9 @@ package vo;
 public class FriendVO {
 	
 	private int idx;
-	private String i;
-	private String friend;
-	private String will;
+	private String i;//본인
+	private String friend;//친구목록
+	private String will;//나에게 친구요청 보낸사람
 	
 	public int getIdx() {
 		return idx;

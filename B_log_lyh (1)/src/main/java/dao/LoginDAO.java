@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -22,6 +24,13 @@ public class LoginDAO {
 		int res = sqlSession.insert("c.user_insert", vo);
 			
 		return res;
+	}
+	
+	//친구찾기 조회용
+	public List<LoginVO> selecList(String id) {
+		System.out.println(id);
+		List<LoginVO> list = sqlSession.selectList("c.login_search", id);
+		return list;
 	}
 	
 }

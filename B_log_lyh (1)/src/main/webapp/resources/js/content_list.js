@@ -59,7 +59,7 @@ function logout() {
 //아이디 검색
 function search() {
 	var id = document.getElementById('search_id').value;
-	var url = 'check_id.do';
+	var url = 'search_id.do';
 	var param = 'id='+id;
 	sendRequest(url, param, resFn, 'post');
 }
@@ -73,7 +73,7 @@ function resFn() {
 		var id = document.getElementById('search_id').value;
 		
 		var data = xhr.responseText;
-		
+		alert(data)
 		if(data=='yes') {
 			location.href='content.do?id='+id;
 		}else {

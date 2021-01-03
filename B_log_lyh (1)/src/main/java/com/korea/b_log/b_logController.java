@@ -251,6 +251,23 @@ public class b_logController {
 		
 		return res;
 	}
+	//아이디 찾기용 조회
+	@RequestMapping("/search_id.do")
+	@ResponseBody
+	public String search_id(String id) {
+		
+		//확인하려는 아이디를 가지고 온다
+		System.out.println(id);
+		List<LoginVO> list = log_dao.selecList(id);
+		String res = "yes";
+		
+		//아이디가 없으면 no를 보낸다
+		if(list==null) {
+			res = "no";
+		}
+		
+		return res;
+	}
 
 	//새글 작성 페이지로 이동
 	@RequestMapping("/insert_form.do")

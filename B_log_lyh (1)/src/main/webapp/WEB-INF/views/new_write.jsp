@@ -9,8 +9,13 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/new_write.css">
 <script type="text/javascript">
 	function send() {
-		
 		var f = document.f;
+		if (f.subject.value.length > 200 ) {
+			alert("제목의 글자수는 영문은 200자, 한글은 100자로 제한됩니다.");
+			f.subject.value = f.subject.value.substring(0, 200);
+			return;
+		}
+		
 		if (f.subject.value == '') {
 			alert("제목을 입력하세요");
 			return;
@@ -55,7 +60,7 @@
 		<table class="table">	
 			
 			<tr>
-				<td><input name="subject" style="border: none" placeholder="스토리 제목을 적어주세요" size="148"></td>
+				<td><input name="subject" style="border: none" placeholder="스토리 제목을 적어주세요" size="148" maxlength="201"></td>
 			</tr>
 			<tr>
 				<td colspan="2">
