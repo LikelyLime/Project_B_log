@@ -83,7 +83,7 @@
 		<div class="content">
 			<div class="content_photo"> 
 				<c:if test="${vo.photo != 'no_file'}">
-					<img src="${pageContext.request.contextPath }/resources/upload/${vo.id }/${vo.photo }">
+					<img class="img" src="${pageContext.request.contextPath }/resources/upload/${vo.id }/${vo.photo }">
 				</c:if>
 			</div>	
 			<pre>${vo.content}</pre>
