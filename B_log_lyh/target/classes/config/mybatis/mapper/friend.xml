@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="f">
+	
+	<select id="will_friend_list" parameterType="String" resultType="friend">
+		select * from b_log_friend where i=#{id} and will is not null
+	</select>
+	
+	<select id="friend_list" parameterType="String" resultType="friend">
+		select * from b_log_friend where i=#{id} and friend is not null
+	</select>
+	
+	<select id="i_want_friend" parameterType="String" resultType="friend">
+		select * from b_log_friend where will=#{id}
+	</select>
+	
+	<insert id="be_my_friend" parameterType="friend">
+		insert into b_log_friend values(
+			seq_friend_idx.nextval,
+			#{will},
+			null,
+			#{i}
+		)
+	</insert>
+	
+	<insert id="my_friend" parameterType="friend">
+		insert into b_log_friend values(
+			seq_friend_idx.nextval,
+			#{friend},
+			#{i},
+			null
+		)
+	</insert>
+	
+	<update id="my_friend_update" parameterType="friend">
+		update b_log_friend set friend=#{friend}, will=null where i=#{i} and will=#{friend}
+	</update>
+	
+	<delete id="del_friend" parameterType="friend">
+		delete from b_log_friend where i=#{i} and will=#{will}
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

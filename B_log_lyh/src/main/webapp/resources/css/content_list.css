@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+   color: #333333;
+   background: #596778;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	cursor : pointer;
+}
+
+#backtotop {
+ cursor : pointer;
+ display : none;
+ margin : 0% 0% 2% 85%;  /*이미지 위치*/
+ position : fixed;
+ bottom : 10px;
+ font-size : 90%;
+ padding : 10px;
+ width : 100px;
+ text-align : center;
+ background-color : #000;
+ border-radius : 8px;
+ -webkit-border-radius : 8px;
+ -moz-border-radius : 8px;
+ filter : alpha(opacity=30);
+ -khtml-opacity : 0.6;
+ -moz-opacity : 0.6;
+ opacity : 0.6;
+ color : #FFF;
+ font-size : 14px;
+ z-index : 1000;
+}
+
+#backtotop:hover
+{
+ filter : alpha(opacity=90);
+ -khtml-opacity : 0.9;
+ -moz-opacity : 0.9;
+ opacity : 0.9;
+}
+
+#head_box {
+	width: 500px;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+#main_box {
+	height: 700px;
+	width: 500px;
+	margin: auto;
+}
+
+#head_box > h1 {
+	text-align: center;
+	font-size: 25pt;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #fff;
+	text-shadow: 2px 2px 2px black;
+}
+
+.friends_box {
+	overflow: hidden;
+}
+
+.friends1 {
+	float: left;
+	overflow: auto;
+	height: 150px;
+	width: 200px;
+	margin: 10px 0px 0px 20px;
+	border: 1px solid black;
+	background-color: #fff;
+}
+
+.friends2 {
+	float: right;
+	overflow: auto;
+	height: 150px;
+	width: 200px;
+	margin: 10px 20px 0px 0px;
+	border: 1px solid black;
+	background-color: #fff;
+}
+
+.b_log_box {
+	margin-top: 10px;
+	box-shadow: 2px 2px 2px black;
+	border: 1px solid black;
+	border-radius: 10px;
+	background: #FFFFFF;
+}
+
+pre {
+    width:470px; 
+    padding:0 5px; 
+    overflow:hidden; 
+    text-overflow:ellipsis; 
+    white-space:nowrap;
+
+}  
+
+.type_content {
+	margin-top: 5px;
+	min-height: 50px;
+	height: auto;
+}
+
+.type_content_write{
+	min-height: 50px;
+	height: auto;
+}
+
+.img {
+	max-height: 100px;
+}
+
+.type_content_photo{
+	text-align: center;
+	padding: 5px 0px 5px 0px;
+	min-height: 100px;
+	height: auto;
+}
+
+.type_name {
+	
+	font-weight: bolder;
+	padding-left:30px;
+	border-radius: 20px;
+}
+
+.type_regdate {
+	padding-left:30px;
+	font-size: 14px;
+}
+
+#top {
+	position: absolute;
+	top: 700px;
+	left: 100px;
+}
+
+
+
+
+
+
